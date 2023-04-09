@@ -1,10 +1,12 @@
 import './App.css';
 import React from 'react';
+import { Input } from '@material-ui/core';
 
 function App() {
   return (
     <div className="App">
-      chart chart
+      <h1>chart chart</h1>
+      <Input placeholder='Question ?' />
     </div>
   );
 }
