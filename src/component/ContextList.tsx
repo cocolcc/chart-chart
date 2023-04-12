@@ -3,8 +3,9 @@ import React from "react";
 import ContextListItem from "./ContextListItem";
 
 interface ContextListPropsType {
-    questionList: Array<QuestionType>,
-    className?: string
+    chatList: Array<ChatType>,
+    className?: string,
+    isLoading: Boolean
 }
 
 const useStyle = makeStyles((theme: Theme) => createStyles({
@@ -14,12 +15,12 @@ const useStyle = makeStyles((theme: Theme) => createStyles({
     },
 }))
 
-const ContextList: React.FC<ContextListPropsType> = ({ questionList, className }) => {
-    const ContextList = questionList.map((question) => ({ text: question.text, index: question.index, role: "question" }));
+const ContextList: React.FC<ContextListPropsType> = ({ chatList, className, isLoading }) => {
     const classes = useStyle();
     return (
         <div className={className} id="bottom-scroll">
-            {ContextList.map((context) => <ContextListItem className={classes.context} context={context} />)}
+            {chatList.map((chat, index) => <ContextListItem key={index} className={classes.context} chat={chat} />)}
+            {isLoading ? <div>Loading...</div> : null}
         </div>
     );
 }

@@ -1,13 +1,13 @@
 import React from "react";
 
 interface ContextListItemPropsType {
-    context: ContextType,
+    chat: ChatType,
     className?: string
 }
 
-const ContextListItem: React.FC<ContextListItemPropsType> = ({ context, className }) => {
+const ContextListItem: React.FC<ContextListItemPropsType> = ({ chat, className }) => {
     return (
-        <div className={className}>Q: {context.text}</div>
+        <div className={className}>Q: {chat.text}</div>
     );
 }
 
